@@ -1,0 +1,21 @@
+server:
+  port: 1000
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri:
+          search-paths: dev
+          default-label: master
+          username: tianlaisha
+          password: glz123456```
+eureka:
+  instance:
+    hostname: config-server
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka
+
