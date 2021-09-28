@@ -1,5 +1,5 @@
 server:
-  port: 1000
+  port: 8888
 spring:
   application:
     name: config-server
@@ -7,9 +7,10 @@ spring:
     config:
       server:
         git:
-          uri:
-          search-paths: dev
+          uri: https://github.com/tianlaisha/sudo-cloud
+          search-paths: config
           default-label: master
+          force-pull: true
           username: tianlaisha
           password: glz123456```
 eureka:

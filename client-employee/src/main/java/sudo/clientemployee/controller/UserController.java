@@ -15,13 +15,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserController {
 
-    @Value("${server.port}")
-    private String port;
+//    @Value("${server.port}")
+//    private String port;
 
-    @RequestMapping("/port")
-    public String clientUserPort(@RequestParam(value = "port")String port){
-        if (StringUtils.isNotEmpty(port)) this.port = port;
-        return "this is user port : " + this.port;
+    @Value("${foo}")
+    private String foo;
+    @RequestMapping(value = "/config")
+    public String config(){
+        return this.foo;
     }
+
+//    @RequestMapping("/port")
+//    public String clientUserPort(@RequestParam(value = "port")String port){
+//        if (StringUtils.isNotEmpty(port)) this.port = port;
+//        return "this is user port : " + this.port;
+//    }
 
 }

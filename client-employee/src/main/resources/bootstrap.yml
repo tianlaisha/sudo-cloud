@@ -3,6 +3,13 @@ server:
 spring:
   application:
     name: client-employee
+  cloud:
+    config:
+      uri: http://localhost:8888/
+      profile: dev
+      discovery:
+        enabled: true
+        service-id: config-server
 eureka:
   instance:
     hostname: client-employee
