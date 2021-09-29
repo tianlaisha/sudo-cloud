@@ -24,4 +24,9 @@ public class ChatController {
         System.out.println(port+"=====================================");
         return chatService.clientUserPort(port);
     }
+
+    @RequestMapping("/get")
+    public String gatewayGet(){
+        return "this is gateway route way";
+    }
 }
