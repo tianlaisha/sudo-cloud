@@ -5,11 +5,12 @@ spring:
     name: client-employee
   cloud:
     config:
+      # 对应配置文件名
+      name: client-employee
+      # config server的地址
       uri: http://localhost:8888/
+      # 开发环境
       profile: dev
-      discovery:
-        enabled: true
-        service-id: config-server
 eureka:
   instance:
     hostname: client-employee

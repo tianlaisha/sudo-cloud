@@ -7,10 +7,13 @@ spring:
     config:
       server:
         git:
+          # 此处还是有问题 这个是从本地git获取的，没有从网络中获取，需要之后研究
+          # http://localhost:8888/文件名/dev 可以测试
           uri: https://github.com/tianlaisha/sudo-cloud
           search-paths: config
           default-label: master
           force-pull: true
+          # github上public的  username与password可以使空
           username: tianlaisha
           password: glz123456```
 eureka:
