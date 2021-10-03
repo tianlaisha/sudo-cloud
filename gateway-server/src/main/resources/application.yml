@@ -8,7 +8,7 @@ spring:
   application:
     name: gateway-server
   profiles:
-    active: path_route
+    active: limit_route
 ---
 spring:
   profiles: method_route
@@ -29,3 +29,26 @@ spring:
         predicates:
         - Path=/get
   profiles: path_route
+
+---
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: limit_route
+        uri: http://localhost:9002/get
+        predicates:
+        - Path=/get
+        filters:
+          - name: RequestRateLimiter
+            args:
+              key-resolver: '#{@hostAddrKeyResolver}'
+              redis-rate-limiter.replenishRate: 1
+              redis-rate-limiter.burstCapacity: 1
+  profiles: path_route
+
+  # redis-cli.exe -h 127.0.0.1 -p 6379  启动redis  本地cmd
+  redis:
+    host: localhost
+    database: 0
+    port: 6379

@@ -4,9 +4,13 @@ import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import sudo.gatewayserver.filter.ReqeustTimeFilter;
 import sudo.gatewayserver.filter.TokenFilter;
+import sudo.gatewayserver.service.ReidsService;
+
+import javax.annotation.Resource;
 
 /**
  * @author glz
@@ -16,6 +20,15 @@ import sudo.gatewayserver.filter.TokenFilter;
  */
 @RestController
 public class RouteController {
+
+    @Resource
+    ReidsService reidsService;
+
+    @RequestMapping("/redis")
+    public String redisOperate(@RequestParam(value = "key") String key , @RequestParam(value = "value") String value){
+        reidsService.redisOperate(key,value);
+        return reidsService.getRedis(key);
+    }
 
     @RequestMapping("/gateway")
     public String gateway(){
