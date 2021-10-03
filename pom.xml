@@ -14,6 +14,7 @@
         <module>client-chat</module>
         <module>client-employee</module>
         <module>config-server</module>
+        <module>sentinel-server</module>
     </modules>
 
     <properties>
