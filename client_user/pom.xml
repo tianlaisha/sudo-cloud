@@ -51,13 +51,6 @@
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
 
-     <!--   <dependency>
-            <groupId>com.alibaba.csp</groupId>
-            <artifactId>sentinel-core</artifactId>
-            <version>RELEASE</version>
-            <scope>compile</scope>
-        </dependency>-->
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
