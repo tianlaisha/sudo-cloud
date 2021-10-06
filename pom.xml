@@ -15,6 +15,7 @@
         <module>client-employee</module>
         <module>config-server</module>
         <module>sentinel-server</module>
+        <module>prometheus</module>
     </modules>
 
     <properties>
@@ -24,10 +25,43 @@
         <spring-boot.version>2.1.7.RELEASE</spring-boot.version>
         <spring-boot-web.version>2.1.7</spring-boot-web.version>
         <fastjson.version>1.2.47</fastjson.version>
+        <lombok.version>1.18.12</lombok.version>
+        <druid.version>1.2.1</druid.version>
+        <mybatis.version>3.4.6</mybatis.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-jdbc</artifactId>
+            </dependency>
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <scope>runtime</scope>
+            </dependency>
+
+            <!-- mybatis -->
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
             <!-- SpringBoot -->
             <dependency>
                 <groupId>io.spring.platform</groupId>

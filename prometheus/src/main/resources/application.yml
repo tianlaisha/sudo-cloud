@@ -1,0 +1,18 @@
+server:
+  port: 2000
+spring:
+  application:
+    name: prometheus
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka
+# include 后面的需要增加引号  这个需要注意
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  metrics:
+    tags:
+      application: ${spring.application.name}
