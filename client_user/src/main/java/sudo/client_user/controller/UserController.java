@@ -5,6 +5,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import sudo.client_user.entity.User;
+import sudo.client_user.service.UserService;
+
+import javax.annotation.Resource;
 
 /**
  * @author glz
@@ -14,6 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class UserController {
+
+    @Resource
+    UserService userService;
 
     @Value("${server.port}")
     private String port;
@@ -25,5 +32,12 @@ public class UserController {
         return "this is user port : " + this.port;
     }
 
+
+    @RequestMapping("userById")
+    public String userById(@RequestParam(value = "id")Integer id){
+        User user = userService.selectUser(id);
+        System.out.println(user.getUserName() + "==========================================");
+        return user.getUserName();
+    }
 
 }
