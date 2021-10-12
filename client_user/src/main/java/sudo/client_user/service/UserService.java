@@ -12,4 +12,6 @@ public interface UserService {
 
     public User selectUser(Integer id);
 
+    public void login(String username ,String password);
+
 }

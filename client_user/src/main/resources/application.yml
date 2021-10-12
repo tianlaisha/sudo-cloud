@@ -19,3 +19,9 @@ mybatis:
   config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mybatis/mapper/*Mapper.xml
   type-aliases-package: sudo.client_user.mapper
+
+logging:
+  config: D:/soft/data/DS/sudo/client_user/src/main/resources/config/locbak.xml
+  level:
+    sudo.client_user: trace
+
