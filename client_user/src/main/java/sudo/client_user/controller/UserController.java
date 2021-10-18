@@ -39,6 +39,7 @@ public class UserController {
     })
     @RequestMapping("/port")
     public String clientUserPort(@RequestParam(value = "port")String port){
+        System.out.println(port);
 //        if (StringUtils.isNotEmpty(port)) this.port = port;
         System.out.println(this.port+"===============================");
 
@@ -46,12 +47,14 @@ public class UserController {
         return "this is user port : " + this.port;
     }
 
-    @RequestMapping("userById")
+    @RequestMapping("/userById")
     public String userById(@RequestParam(value = "id")Integer id){
+        System.out.println(id+"==================");
         User user = userService.selectUser(id);
         System.out.println(user.getUserName() + "==========================================");
         return user.getUserName();
     }
+
 
     @RequestMapping("login")
     public String login(@RequestParam("username")String userName,@RequestParam("password")String passWord){

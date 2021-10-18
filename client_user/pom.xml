@@ -120,6 +120,18 @@
             <version>1.2.58</version>
             <scope>compile</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
@@ -155,6 +167,9 @@
                 <configuration>
                     <!-- 是否覆盖，true表示会替换生成的JAVA文件，false则不覆盖 -->
                     <overwrite>true</overwrite>
+                </configuration>
+                <configuration>
+                    <fork>true</fork>
                 </configuration>
                 <dependencies>
                     <!--mysql驱动包-->

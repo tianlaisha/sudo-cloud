@@ -1,0 +1,42 @@
+2021-10-18 23:41:52.793 [main] INFO  sudo.client_user.HelloControlerTests - No active profile set, falling back to default profiles: default
+2021-10-18 23:41:54.371 [main] INFO  o.springframework.cloud.context.scope.GenericScope - BeanFactory id=43d1f9ff-4208-3df0-8f2d-730caec69bd4
+2021-10-18 23:41:54.621 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$28a11e1b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-10-18 23:41:54.684 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$44bb2118] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-10-18 23:41:56.418 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2021-10-18 23:41:56.824 [main] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2021-10-18 23:41:56.824 [main] INFO  com.netflix.config.sources.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-10-18 23:41:56.824 [main] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2021-10-18 23:41:56.824 [main] INFO  com.netflix.config.sources.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-10-18 23:41:57.277 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-10-18 23:42:02.668 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-10-18 23:42:02.699 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-10-18 23:42:02.761 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-10-18 23:42:03.136 [main] INFO  sudo.client_user.HelloControlerTests - Started HelloControlerTests in 15.249 seconds (JVM running for 17.032)
+2021-10-18 23:42:03.480 [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2021-10-18 23:42:03.480 [main] INFO  o.s.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+2021-10-18 23:42:03.480 [main] INFO  o.s.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+2021-10-18 23:42:03.590 [Thread-5] INFO  o.s.cloud.netflix.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2021-10-18 23:42:03.590 [Thread-5] INFO  o.s.c.n.e.serviceregistry.EurekaServiceRegistry - Unregistering application CLIENT-USER with eureka with status DOWN
+2021-10-18 23:42:03.605 [Thread-5] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-10-18 23:42:03.605 [Thread-5] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-0} closing ...
+2021-10-18 23:43:11.821 [main] INFO  sudo.client_user.HelloControlerTests - No active profile set, falling back to default profiles: default
+2021-10-18 23:43:13.352 [main] INFO  o.springframework.cloud.context.scope.GenericScope - BeanFactory id=43d1f9ff-4208-3df0-8f2d-730caec69bd4
+2021-10-18 23:43:13.586 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$28a11e1b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-10-18 23:43:13.664 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$44bb2118] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-10-18 23:43:15.320 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2021-10-18 23:43:15.727 [main] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2021-10-18 23:43:15.727 [main] INFO  com.netflix.config.sources.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-10-18 23:43:15.742 [main] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2021-10-18 23:43:15.742 [main] INFO  com.netflix.config.sources.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-10-18 23:43:16.180 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-10-18 23:43:21.742 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-10-18 23:43:21.773 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-10-18 23:43:21.851 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-10-18 23:43:22.305 [main] INFO  sudo.client_user.HelloControlerTests - Started HelloControlerTests in 15.75 seconds (JVM running for 17.394)
+2021-10-18 23:43:22.664 [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2021-10-18 23:43:22.664 [main] INFO  o.s.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+2021-10-18 23:43:22.664 [main] INFO  o.s.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+2021-10-18 23:43:22.805 [Thread-5] INFO  o.s.cloud.netflix.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2021-10-18 23:43:22.820 [Thread-5] INFO  o.s.c.n.e.serviceregistry.EurekaServiceRegistry - Unregistering application CLIENT-USER with eureka with status DOWN
+2021-10-18 23:43:22.820 [Thread-5] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-10-18 23:43:22.836 [Thread-5] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-0} closing ...
