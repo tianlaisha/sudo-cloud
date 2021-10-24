@@ -8,7 +8,21 @@ spring:
     url: jdbc:mysql://localhost:3306/sudo?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
     username: root
     password: password
+    # 配置数据源
     type: com.alibaba.druid.pool.DruidDataSource
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    filters: stat,wall,log4j
+    logSlowSql: true
 eureka:
   client:
     instance:
@@ -22,4 +36,5 @@ mybatis:
 logging:
   config: classpath:config/locbak.xml
   level:
+    com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver: WARN
     sudo.client_user: trace
