@@ -1,27 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration debug="false">
+<!-- 日志级别从低到高  TRACE  DEBUG  INFO WARN ERROR FATAL 低于WARN就不会打印日志
+    scan=true  表示当日志配置文档发生变化，将会被重新加载，默认为true
+    scanPeriod 设置 表示当scan=true时，多长时间加监控一下  默认1分钟
+    resource：false 默认为true打印logbac内部日志  false不打印
+-->
+<configuration scan="true" scanPeriod="1000 seconds" resource="false">
+
+    <!-- property 定义后的值key   value   可以用${}在文件下面使用-->
+    <springProperty scop="context" name="spring.application.name" source="spring.application.name" defaultValue="client_user"/>
     <!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径-->
     <property name="LOG_HOME" value="client_user/log"/>
+
+    <!--
+        日志输出格式：
+			%d表示日期时间，
+			%thread表示线程名，
+			%-5level：级别从左显示5个字符宽度
+			%logger{50} 表示logger名字最长50个字符，否则按照句点分割。
+			%msg：日志消息，
+			%n是换行符
+			%-15.15():如果记录的线程字符长度小于15(第一个)则用空格在右侧补齐,如果字符长度大于15(第二个),则从开头开始截断多余的字符
+			%-50.50()：如果记录的logger字符长度小于50(第一个)则用空格在右侧补齐,如果字符长度大于50(第二个),则从开头开始截断多余的字符
+			%highlight()：颜色，info为蓝色，warn为浅红，error为加粗红，debug为黑色
+			%boldMagenta:粗红
+			%magenta:洋红
+			$cyan:青色
+			%white:白色
+        -->
     <!-- 定义日志格式  -->
-    <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%thread] [%-30.30logger{30}] %msg%n"/>
+    <property name="LOG_PATTERN" value="%boldMagenta(%d{yyyy-MM-dd HH:mm:ss.SSS}) [%thread] %-5level %highlight(%logger{50}) - %msg%n"/>
     <!-- 控制台输出 -->
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- 配置最低级别 用于调试控制台输出的内容-->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>DEBUG</level>
+        </filter>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符
+            -->
+            <pattern>${LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
         </encoder>
     </appender>
+
     <!-- 按照每天生成日志文件 -->
-    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <appender name="LOG_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!--日志文件输出的文件名-->
-            <FileNamePattern>${LOG_HOME}/SpringBoot-Slf4j_%d{yyyy-MM-dd}.log</FileNamePattern>
+            <FileNamePattern>${LOG_HOME}/${spring.application.name}_%d{yyyy-MM-dd}.log</FileNamePattern>
             <!--日志文件保留天数-->
             <MaxHistory>30</MaxHistory>
         </rollingPolicy>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+            <charset>UTF-8</charset>
         </encoder>
         <!--日志文件最大的大小-->
         <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
@@ -29,12 +62,13 @@
         </triggeringPolicy>
     </appender>
 
-    <!-- 日志输出级别 -->
+    <!-- logger是设置某一个包或某个类的日志输出级别 -->
     <logger name="org.springframework" level="INFO"/>
-    <logger name="sudo.client_user" level="INFO"/>
+    <logger name="org.apache.ibatis.logging" level="INFO"/>
     <root level="INFO">
-        <appender-ref ref="FILE"/>
-        <!-- 需要处理  这个打印报错  后续处理-->
-        <!--<appender-ref ref="console"/>-->
+        <!-- 输出到文件 -->
+        <!--<appender-ref ref="LOG_FILE"/>-->
+        <!-- 输出到控制台 -->
+        <appender-ref ref="CONSOLE"/>
     </root>
 </configuration>

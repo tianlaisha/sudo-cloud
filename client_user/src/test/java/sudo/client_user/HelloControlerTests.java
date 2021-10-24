@@ -8,14 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
-import sudo.client_user.controller.UserController;
 
 /**
  * @author glz
@@ -35,11 +33,11 @@ public class HelloControlerTests {
 
     @Before
     public void setUp()throws  Exception{
-        // 测试单一controller可以使用这个
-        // mvc = MockMvcBuilders.standaloneSetup(new UserController()).build();
+        // 加载webapplicationcontext  进行启动springboot进行加载测试
         mvc = MockMvcBuilders.webAppContextSetup(wac).build();
     }
 
+    // 测试userbyid  接口
     @Test
     public void getHello()throws Exception{
         mvc.perform(MockMvcRequestBuilders.get("/userById").param("id","1")

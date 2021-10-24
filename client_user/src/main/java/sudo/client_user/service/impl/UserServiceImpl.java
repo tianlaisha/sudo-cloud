@@ -4,7 +4,10 @@ import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.databind.util.JSONPObject;
 import org.apache.commons.lang.StringUtils;
 import org.apache.tomcat.util.codec.binary.Base64;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import sudo.client_user.controller.UserController;
 import sudo.client_user.entity.User;
 import sudo.client_user.mapper.UserMapper;
 import sudo.client_user.service.UserService;
@@ -26,11 +29,13 @@ import java.security.spec.X509EncodedKeySpec;
 @Service
 public class UserServiceImpl implements UserService {
 
+    private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
     @Resource
     UserMapper userMapper;
 
     @Override
     public User selectUser(Integer id) {
+        logger.debug("service begin");
         return userMapper.selectUser(id);
     }
 

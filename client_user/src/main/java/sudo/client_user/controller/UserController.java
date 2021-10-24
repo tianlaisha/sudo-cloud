@@ -49,9 +49,9 @@ public class UserController {
 
     @RequestMapping("/userById")
     public String userById(@RequestParam(value = "id")Integer id){
-        System.out.println(id+"==================");
+        logger.debug("========controler-日志-begin==========");
         User user = userService.selectUser(id);
-        System.out.println(user.getUserName() + "==========================================");
+        logger.debug(user.getUserName()+"==controller end=");
         return user.getUserName();
     }
 
