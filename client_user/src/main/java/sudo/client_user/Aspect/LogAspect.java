@@ -15,13 +15,15 @@ import java.util.Arrays;
 /**
  * @author glz
  * @version 1.0
- * @description
+ * @description 增加Aspect
  * @date 2021/10/2415:53
  */
 @Aspect
 @Component
 @Slf4j
 public class LogAspect {
+
+
     private static final Logger logger = LoggerFactory.getLogger(LogAspect.class);
 
     @Before("execution(* sudo.client_user.controller.*.*(..))") // 所有controller包下面的所有方法的所有参数
