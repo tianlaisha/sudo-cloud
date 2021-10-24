@@ -25,8 +25,8 @@ public class InterceptorConfig extends WebMvcConfigurerAdapter {
     @Autowired
     ServiceHandlerInterceptor serviceHandlerInterceptor;
 
-    public String[] strs = new String[]{"/userById/**","/userLogin/**"};
-    public String[] exstrs = new String[]{"/service/**"};
+    public String[] strs = new String[]{"/userById"};
+    public String[] exstrs = new String[]{"/login"};
 
     public List<String> addUrls;
     public List<String> exUrls;
@@ -36,8 +36,8 @@ public class InterceptorConfig extends WebMvcConfigurerAdapter {
         // 多个拦截器 组成拦截器链 addPathPatterns 用于添加拦截规则 excludePathPatterns 用于排除拦截
         addUrls = Arrays.asList(strs);
         exUrls = Arrays.asList(exstrs);
-        registry.addInterceptor(userHandlerInterceptor).addPathPatterns(addUrls).excludePathPatterns(exUrls);
-        registry.addInterceptor(serviceHandlerInterceptor).addPathPatterns(addUrls).excludePathPatterns(exUrls);
+        registry.addInterceptor(userHandlerInterceptor).addPathPatterns(exstrs).excludePathPatterns(strs);
+        registry.addInterceptor(serviceHandlerInterceptor).addPathPatterns(strs).excludePathPatterns(exstrs);
         super.addInterceptors(registry);
     }
 

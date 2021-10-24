@@ -56,7 +56,7 @@ public class UserController {
     }
 
 
-    @RequestMapping("login")
+    @RequestMapping("/login")
     public String login(@RequestParam("username")String userName,@RequestParam("password")String passWord){
         userService.login(userName,passWord);
         // 之后统一升级异常处理
