@@ -19,10 +19,10 @@ public class JWTManager {
 
     public static String generateToken(User user, int expiration) throws Exception {
         JwtClaims jwtClaims = new JwtClaims();
-        jwtClaims.setIssuer(user.getPassWord());
-        jwtClaims.setAudience("RS256");
-        jwtClaims.setExpirationTimeMinutesInTheFuture(expiration);
-        jwtClaims.setGeneratedJwtId();
+        jwtClaims.setIssuer(user.getPassWord()); // 验证身份方式  可以为邮箱等信息  --可以做多层加密
+        jwtClaims.setAudience("RS256"); // 管理用户标示  可以使用list方式进行传递
+        jwtClaims.setExpirationTimeMinutesInTheFuture(expiration); // 过期时间
+        jwtClaims.setGeneratedJwtId(); // 生成16位的jwtid
         jwtClaims.setIssuedAtToNow();
         jwtClaims.setNotBeforeMinutesInThePast(2);
         jwtClaims.setSubject("LOGIN");
