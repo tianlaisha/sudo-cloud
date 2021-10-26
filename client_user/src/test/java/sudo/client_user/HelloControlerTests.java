@@ -40,7 +40,8 @@ public class HelloControlerTests {
     // 测试userbyid  接口
     @Test
     public void getHello()throws Exception{
-        mvc.perform(MockMvcRequestBuilders.get("/userById").param("id","1")
+        mvc.perform(MockMvcRequestBuilders.get("/login").param("username","zhangsan")
+                .param("password","123456")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andDo(MockMvcResultHandlers.print())

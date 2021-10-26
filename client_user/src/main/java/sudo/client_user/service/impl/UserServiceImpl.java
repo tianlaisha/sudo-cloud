@@ -41,6 +41,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void login(String username, String password) {
+        // 此处多线程开发之后需要完善
         String[] s = password.split("");
         List<String> strs = Arrays.asList(s);
         logger.debug("msg:{}" , strs);
