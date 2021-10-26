@@ -1,0 +1,14 @@
+1.mvn clean package -Dmaven.test.skip=true   // 即在项目所在文件夹，本文件夹为soft/data/DS/sudo/  ->    在控制台输入打包命令
+2.首次执行
+nohup java -jar xxx.jar > output.log 2>&1&
+tail -2000f output.log
+nohup：不挂断地运行命令，退出帐户之后继续运行相应的进程。
+>output.log：是nohup把command的输出重定向到当前目录的指定的“output.log”文件中，即输出内容不打印到屏幕上，而是输出到”output.log”文件中。不指定文件名会在当前目录创建nohup.out，如果当前目录的 nohup.out 文件不可写，输出重定向到 $HOME/nohup.out 文件中。如果没有文件能创建或打开以用于追加，那么 Command 参数指定的命令不可调用。
+2>&1：2就是标准错误，1是标准输出，该命令相当于把标准错误重定向到标准输出么。这里&相当于标准错误等效于标准输出，即把标准错误和标准输出同时输出到指定的“output.log”文件中。
+java -jar 自己的springboot项目.jar：执行springboot的项目，如果单单只执行该命令，linux只会短暂的运行该项目，当退出控制台后会自动关闭该项目。
+3.非首次执行ps -ef|grep **.jar   ->kill 进程
+
+4.java -jar **.jar  参数=值   这样进行设定启动
+
+5.将文件复制到linux文件usr/app目录进行测试  启动后访问项目验证OK  后续需要完善直接部署到linux上或者docker打包到linux上或者jekins
+
