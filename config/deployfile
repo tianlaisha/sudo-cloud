@@ -12,3 +12,6 @@ java -jar 自己的springboot项目.jar：执行springboot的项目，如果单�
 
 5.将文件复制到linux文件usr/app目录进行测试  启动后访问项目验证OK  后续需要完善直接部署到linux上或者docker打包到linux上或者jekins
 
+6.通过idea的Project-structure->Artifacts->JAR->from module dependences->copy to output...  这样可以将jar包指定文件目录
+
+7.可以通过maven私有仓库配置将指定文件生成到maven仓库中   ---暂时还没有实现
