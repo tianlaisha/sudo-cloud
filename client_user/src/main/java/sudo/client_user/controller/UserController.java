@@ -20,6 +20,10 @@ import javax.annotation.Resource;
  * @version 1.0
  * @description
  * @date 2021/9/2723:32
+ *
+ * springmvc 是单例的  单例减少了创建servlet的资源，但当并发情况服务器会创建多个线程
+ * 当存在成员变量（有状态->可以保存数据，是线程不安全的 无状态->不能保存数据，线程是安全的）
+ *
  */
 @RestController
 @Api(value = "UserController",description = "用户的控制层")

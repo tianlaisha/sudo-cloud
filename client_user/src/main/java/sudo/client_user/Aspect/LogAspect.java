@@ -7,6 +7,8 @@ import org.aspectj.lang.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+import sudo.client_user.MDC.MDCThreadContext;
+import sudo.client_user.MDC.TraceUtil;
 
 /**
  * @author glz
@@ -24,6 +26,9 @@ public class LogAspect {
 
     @Before("execution(* sudo.client_user.controller.*.*(..))") // 所有controller包下面的所有方法的所有参数
     public void beforeMethod(JoinPoint jp) {
+
+        TraceUtil.traceStart(); // MDC日志链路开始
+
         String methodName = jp.getSignature().getName();
         log.info("[前置增强]the method [" + methodName + "] begins with " + JSON.toJSONString(jp.getArgs()));
     }
@@ -35,6 +40,9 @@ public class LogAspect {
     @After("execution(* sudo.client_user.controller.*.*(..)))")
     public void afterMethod(JoinPoint jp) {
         log.info("[后置增强]this is a afterMethod advice...");
+
+        TraceUtil.traceEnd(); // MDC日志链路结束
+
     }
     /**
      * 返回增强：目标方法正常执行完毕时执行
