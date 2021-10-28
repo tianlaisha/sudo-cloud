@@ -15,3 +15,7 @@ java -jar 自己的springboot项目.jar：执行springboot的项目，如果单�
 6.通过idea的Project-structure->Artifacts->JAR->from module dependences->copy to output...  这样可以将jar包指定文件目录
 
 7.可以通过maven私有仓库配置将指定文件生成到maven仓库中   ---暂时还没有实现
+
+8.svn与git可以切换  在setting ->version control -> 可以设置使用svn还是git
+
+
