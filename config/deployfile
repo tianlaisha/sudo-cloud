@@ -18,4 +18,6 @@ java -jar 自己的springboot项目.jar：执行springboot的项目，如果单�
 
 8.svn与git可以切换  在setting ->version control -> 可以设置使用svn还是git
 
+9.将svn文件重新提交到另外的文件夹  删除.svn隐藏文件
+
 
