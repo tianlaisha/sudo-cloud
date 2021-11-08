@@ -22,6 +22,9 @@ public class UserController {
     private String foo;
     @RequestMapping(value = "/config")
     public String config(){
+
+
+
         return this.foo;
     }
 
