@@ -1,7 +1,5 @@
 package sudo.clientchat.service.ChatServiceImpl;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import sudo.clientchat.chain.ApplicationFilterChain;
 import sudo.clientchat.service.ChatService;

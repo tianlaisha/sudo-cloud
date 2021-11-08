@@ -1,8 +1,5 @@
 package sudo.clientchat.chain;
 
-import javax.servlet.*;
-import java.io.IOException;
-
 /**
  * @author glz
  * @version 1.0
