@@ -32,3 +32,5 @@ client-user:
     MaxAutoRetriesNextServer: 1
     #对当前实例的重试次数
     MaxAutoRetires: 1
+logging:
+  config: classpath:logback.xml

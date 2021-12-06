@@ -1,9 +1,12 @@
 package sudo.clientchat.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import sudo.clientchat.service.ChatService;
+import sudo.clientchat.service.ClientEmployeeService;
 
 import javax.annotation.Resource;
 
@@ -16,8 +19,13 @@ import javax.annotation.Resource;
 @RestController
 public class ChatController {
 
+    private static final Logger logger = LoggerFactory.getLogger(ChatController.class);
+
     @Resource
     ChatService chatService;
+
+    @Resource
+    ClientEmployeeService clientEmployeeService;
 
     @RequestMapping( value = "/port")
     public String userPort(@RequestParam(value = "port") String port){
@@ -27,5 +35,13 @@ public class ChatController {
     @RequestMapping("/get")
     public String gatewayGet(){
         return "this is gateway route way";
+    }
+
+    @RequestMapping("/mdc_traceId")
+    public String mdctraceId(){
+        // 调用traceid  全链路实现
+        logger.info("logger==========================start");
+        clientEmployeeService.traceId();
+        return "traceId";
     }
 }
