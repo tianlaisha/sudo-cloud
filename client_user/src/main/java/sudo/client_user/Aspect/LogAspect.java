@@ -32,6 +32,7 @@ public class LogAspect {
         String methodName = jp.getSignature().getName();
         log.info("[前置增强]the method [" + methodName + "] begins with " + JSON.toJSONString(jp.getArgs()));
     }
+
     /**
      * 后置增强：目标方法执行之后执行以下方法体的内容，不管是否发生异常。
      *
@@ -44,6 +45,7 @@ public class LogAspect {
         TraceUtil.traceEnd(); // MDC日志链路结束
 
     }
+
     /**
      * 返回增强：目标方法正常执行完毕时执行
      *
@@ -55,6 +57,7 @@ public class LogAspect {
         String methodName = jp.getSignature().getName();
         log.info("[返回增强]the method [" + methodName + "] ends with [" + result + "]");
     }
+
     /**
      * 异常增强：目标方法发生异常的时候执行，第二个参数表示补货异常的类型
      *

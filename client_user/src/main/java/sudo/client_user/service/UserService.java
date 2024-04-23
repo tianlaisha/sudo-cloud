@@ -12,6 +12,7 @@ public interface UserService {
 
     public User selectUser(Integer id);
 
-    public void login(String username ,String password);
+    public void login(String username, String password);
 
+    public String callChatFeign();
 }

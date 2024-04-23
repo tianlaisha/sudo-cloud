@@ -7,30 +7,21 @@ spring:
   cloud.loadbalancer.retry.enabled: true
 eureka:
   instance:
-    hostname: client-chat
+    hostname: localhost
   client:
     service-url:
-      defaultZone: http://localhost:8000/eureka
+      defaultZone: http://localhost:8001/eureka
 feign:
   hystrix:
     enabled: true
-client-user:
-  ribbon:
-    #    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule #配置规则 随机
-    #    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule #配置规则 轮询
-    #    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RetryRule #配置规则 重试
-    #    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.WeightedResponseTimeRule #配置规则 响应时间权重
-    #配置规则 最空闲连接策略
-    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.BestAvailableRule
-    #连接超时时间
-    ConnectTimeout: 250
-    #数据读取超时时间
-    ReadTimeout: 1000
-    #是否对所有操作都进行操作
-    OkToRetryOnAllOperations: true
-    #切换实例的重试次数
-    MaxAutoRetriesNextServer: 1
-    #对当前实例的重试次数
-    MaxAutoRetires: 1
+  compression:
+    request:
+      enabled: true  #开启请求压缩
+      mime-types: text/html,application/xml,application/json #设置压缩类型
+      min-request-size: 2048 #设置触发压缩的大小限制
+    response:
+      enabled: true #开启响应压缩
 logging:
   config: classpath:logback.xml
+  level:
+    sudo.clientchat: debug   # 用于feign的日志的记录详细程度与FeignConfig配合使用

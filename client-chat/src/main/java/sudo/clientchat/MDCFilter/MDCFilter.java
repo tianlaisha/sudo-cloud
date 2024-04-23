@@ -32,12 +32,12 @@ public class MDCFilter implements Filter {
 
         // 如果请求里没有traceid  那么生成并设置traceId
         String traceId = request.getParameter("traceId");
-        if (StringUtils.isBlank(traceId) || MDCUtil.defaultTraceId(traceId)){
+        if (StringUtils.isBlank(traceId) || MDCUtil.defaultTraceId(traceId)) {
             traceId = MDCUtil.genTraceId();
         }
         MDCUtil.setTraceId(traceId);
-        logger.info(request.getLocalAddr() + "--"+request.getRemoteAddr());
-        chain.doFilter(request,response);
+        logger.info(request.getLocalAddr() + "--" + request.getRemoteAddr());
+        chain.doFilter(request, response);
     }
 
     @Override

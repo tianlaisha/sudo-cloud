@@ -3,10 +3,10 @@
 <mapper namespace="sudo.client_user.mapper.UserMapper">
 
     <resultMap id="BaseUser" type="sudo.client_user.entity.User">
-        <result column="id" jdbcType="INTEGER" property="id" />
-        <result column="userName" jdbcType="VARCHAR" property="userName" />
-        <result column="passWord" jdbcType="VARCHAR" property="passWord" />
-        <result column="realName" jdbcType="VARCHAR" property="realName" />
+        <result column="id" jdbcType="INTEGER" property="id"/>
+        <result column="userName" jdbcType="VARCHAR" property="userName"/>
+        <result column="passWord" jdbcType="VARCHAR" property="passWord"/>
+        <result column="realName" jdbcType="VARCHAR" property="realName"/>
     </resultMap>
 
     <select id="selectUser" resultMap="BaseUser">

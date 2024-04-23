@@ -31,8 +31,8 @@ public class UserController {
 //        return this.foo;
 //    }
 
-    @RequestMapping(value = "/traceId",method = RequestMethod.GET)
-    public String traceId(){
+    @RequestMapping(value = "/traceId", method = RequestMethod.GET)
+    public String traceId() {
         logger.info("traceId");
         return "traceId";
     }

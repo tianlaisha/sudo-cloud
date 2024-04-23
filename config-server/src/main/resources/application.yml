@@ -9,17 +9,18 @@ spring:
         git:
           # 此处还是有问题 这个是从本地git获取的，没有从网络中获取，需要之后研究
           # http://localhost:8888/文件名/dev 可以测试
-          uri: https://github.com/tianlaisha/sudo-cloud
+          uri: https://github.com/tianlaisha/sudo-cloud.git
           search-paths: config
           default-label: master
           force-pull: true
           # github上public的  username与password可以使空
           username: tianlaisha
           password: glz123456```
+          clone-on-start: true
 eureka:
   instance:
-    hostname: config-server
+    hostname: localhost
   client:
     service-url:
-      defaultZone: http://localhost:8000/eureka
+      defaultZone: http://localhost:8001/eureka
 

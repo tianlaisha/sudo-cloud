@@ -13,12 +13,12 @@ import sudo.client_user.BaseException.BaseException;
  */
 public class JSONUtil {
 
-    public static JSONObject transferJsonObject(String jsonStr){
-        if(StringUtils.isEmpty(jsonStr)) throw new BaseException("JSON字符串不能为空！");
-        try{
+    public static JSONObject transferJsonObject(String jsonStr) {
+        if (StringUtils.isEmpty(jsonStr)) throw new BaseException("JSON字符串不能为空！");
+        try {
             return JSON.parseObject(jsonStr);
-        }catch (Exception e){
-           throw new BaseException("JSON字符串转换异常！");
+        } catch (Exception e) {
+            throw new BaseException("JSON字符串转换异常！");
         }
     }
 }

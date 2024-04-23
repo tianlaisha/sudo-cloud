@@ -27,18 +27,18 @@ public class ChatController {
     @Resource
     ClientEmployeeService clientEmployeeService;
 
-    @RequestMapping( value = "/port")
-    public String userPort(@RequestParam(value = "port") String port){
+    @RequestMapping(value = "/port")
+    public String userPort(@RequestParam(value = "port") String port) {
         return chatService.clientUserPort(port);
     }
 
     @RequestMapping("/get")
-    public String gatewayGet(){
+    public String gatewayGet() {
         return "this is gateway route way";
     }
 
     @RequestMapping("/mdc_traceId")
-    public String mdctraceId(){
+    public String mdctraceId() {
         // 调用traceid  全链路实现
         logger.info("logger==========================start");
         clientEmployeeService.traceId();

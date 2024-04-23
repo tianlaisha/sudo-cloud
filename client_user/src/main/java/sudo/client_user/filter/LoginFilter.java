@@ -28,14 +28,14 @@ public class LoginFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        HttpServletRequest req = (HttpServletRequest)request;
+        HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
         HttpSession session = req.getSession();
-        String requestURI  = req.getRequestURI();
-        String password = (String)session.getAttribute("password");
-        String username = (String)session.getAttribute("username");
-        logger.debug("LoginFilter->请求路径:[{}-{}-{}]",requestURI,username,password);
-        chain.doFilter( req , res );
+        String requestURI = req.getRequestURI();
+        String password = (String) session.getAttribute("password");
+        String username = (String) session.getAttribute("username");
+        logger.debug("LoginFilter->请求路径:[{}-{}-{}]", requestURI, username, password);
+        chain.doFilter(req, res);
     }
 
     @Override

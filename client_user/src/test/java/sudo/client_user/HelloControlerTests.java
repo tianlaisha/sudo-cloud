@@ -32,16 +32,16 @@ public class HelloControlerTests {
     private MockMvc mvc;
 
     @Before
-    public void setUp()throws  Exception{
+    public void setUp() throws Exception {
         // 加载webapplicationcontext  进行启动springboot进行加载测试
         mvc = MockMvcBuilders.webAppContextSetup(wac).build();
     }
 
     // 测试userbyid  接口
     @Test
-    public void getHello()throws Exception{
-        mvc.perform(MockMvcRequestBuilders.get("/login").param("username","zhangsan")
-                .param("password","123456")
+    public void getHello() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/login").param("username", "zhangsan")
+                .param("password", "123456")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andDo(MockMvcResultHandlers.print())

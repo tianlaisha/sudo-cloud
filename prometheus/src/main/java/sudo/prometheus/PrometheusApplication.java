@@ -22,8 +22,8 @@ public class PrometheusApplication {
 
     @Bean
     MeterRegistryCustomizer<MeterRegistry> configurer(
-            @Value("${spring.application.name}")String applicationNmae){
-        return (registry) -> registry.config().commonTags("application",applicationNmae);
+            @Value("${spring.application.name}") String applicationNmae) {
+        return (registry) -> registry.config().commonTags("application", applicationNmae);
     }
 
 }

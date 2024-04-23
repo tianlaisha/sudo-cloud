@@ -1,5 +1,5 @@
 server:
-  port: 8000
+  port: ${port:8001}
 spring:
   application:
     name: eureka-server
@@ -7,7 +7,19 @@ eureka:
   instance:
     hostname: localhost
   client:
-    register-with-eureka: false
-    fetch-registry: false
+    # eureka高可用：  ${port：8001} 在另一个eureka实例的VM上增加参数-Dport=8002  制定另外实例的端口号  service-url：指定
+    # 多个eureka注册中心，并用“,”隔开即可 同时注掉register-with-eureka: false 与 fetch-registry: false bi
+    # 不进行注册
+    #register-with-eureka: false
+    # 不进行拉取
+    #fetch-registry: false
     service-url:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: ${defaultZone:http://${eureka.instance.hostname}:${server.port}/eureka/ }
+    # 获取服务地址列表时间间隔，默认30 秒
+    registry-fetch-interval-seconds: 10
+  server:
+    enable-self-preservation: false   #关闭自我保护时间  默认是打开的
+    eviction-interval-timer-in-ms: 100  #扫描eureka上注册的服务时效时间间隔
+logging:
+  level:
+    com.netflix: warn  #避免出现打印更多个无用日志：Running the evict task with compensationTime 0ms

@@ -6,7 +6,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8000/eureka
+      defaultZone: http://localhost:8001/eureka
 # include 后面的需要增加引号  这个需要注意
 management:
   endpoints:

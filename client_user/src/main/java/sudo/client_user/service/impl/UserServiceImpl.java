@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import sudo.client_user.ThreadPool.UserThreadPool;
 import sudo.client_user.entity.User;
+import sudo.client_user.feign.ChartFeign;
 import sudo.client_user.mapper.UserMapper;
 import sudo.client_user.service.UserService;
 
@@ -33,6 +34,14 @@ public class UserServiceImpl implements UserService {
     @Resource
     UserMapper userMapper;
 
+    @Resource
+    ChartFeign chartFeign;
+
+    public String callChatFeign() {
+        String s = chartFeign.mdcTraceId();
+        return s;
+    }
+
     @Override
     public User selectUser(Integer id) {
         logger.debug("service begin");
@@ -44,13 +53,13 @@ public class UserServiceImpl implements UserService {
         // 此处多线程开发之后需要完善
         String[] s = password.split("");
         List<String> strs = Arrays.asList(s);
-        logger.debug("msg:{}" , strs);
+        logger.debug("msg:{}", strs);
         strs.stream().forEach(c ->
                 {
-                    Future<String>  stringFuture = userThreadPool.submit(() -> "HELLO:" + c
-                            + this.userThreadPool.getThreadFactory()+"-"+this.userThreadPool.getCorePoolSize()
+                    Future<String> stringFuture = userThreadPool.submit(() -> "HELLO:" + c
+                            + this.userThreadPool.getThreadFactory() + "-" + this.userThreadPool.getCorePoolSize()
                             + Thread.currentThread()
-                        );
+                    );
                     try {
                         logger.debug(stringFuture.get());
                     } catch (InterruptedException e) {

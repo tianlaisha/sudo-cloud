@@ -7,7 +7,8 @@
 <configuration scan="true" scanPeriod="1000 seconds" resource="false">
 
     <!-- property 定义后的值key   value   可以用${}在文件下面使用-->
-    <springProperty scop="context" name="spring.application.name" source="spring.application.name" defaultValue="client_user"/>
+    <springProperty scop="context" name="spring.application.name" source="spring.application.name"
+                    defaultValue="client_user"/>
     <!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径-->
     <property name="LOG_HOME" value="client_user/log"/>
 
@@ -28,7 +29,8 @@
 			%white:白色
         -->
     <!-- 定义日志格式  -->
-    <property name="LOG_PATTERN" value="%boldMagenta(%d{yyyy-MM-dd HH:mm:ss.SSS}) [%thread] %-5level %highlight(%logger{50}) - %msg%n"/>
+    <property name="LOG_PATTERN"
+              value="%boldMagenta(%d{yyyy-MM-dd HH:mm:ss.SSS}) [%thread] %-5level %highlight(%logger{50}) - %msg%n"/>
     <!-- 控制台输出 -->
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <!-- 配置最低级别 用于调试控制台输出的内容-->

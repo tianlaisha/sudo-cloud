@@ -29,7 +29,7 @@ public class InterceptorConfig extends WebMvcConfigurerAdapter {
     public List<String> exUrls;
 
     @Override
-    public void addInterceptors(InterceptorRegistry registry){
+    public void addInterceptors(InterceptorRegistry registry) {
         // 多个拦截器 组成拦截器链 addPathPatterns 用于添加拦截规则 excludePathPatterns 用于排除拦截
         addUrls = Arrays.asList(strs);
         exUrls = Arrays.asList(exstrs);

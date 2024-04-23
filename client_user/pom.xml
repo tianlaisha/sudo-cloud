@@ -10,7 +10,7 @@
 
     <packaging>jar</packaging>
 
-   <parent>
+    <parent>
         <groupId>commom</groupId>
         <artifactId>sudo</artifactId>
         <version>1.0-SNAPSHOT</version>
@@ -136,6 +136,11 @@
             <artifactId>annotations</artifactId>
             <version>RELEASE</version>
             <scope>compile</scope>
+        </dependency>
+        <!-- 服务降级-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
         </dependency>
 
     </dependencies>

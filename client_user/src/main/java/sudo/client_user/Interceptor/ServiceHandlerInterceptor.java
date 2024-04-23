@@ -25,13 +25,13 @@ public class ServiceHandlerInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
         String requestURI = request.getRequestURI();
-        logger.debug("ServiceHandlerInterceptor -> InterceptorUrl->"+requestURI);
+        logger.debug("ServiceHandlerInterceptor -> InterceptorUrl->" + requestURI);
         User user = new User();
         String token = request.getParameter("token");
         String password = request.getParameter("password");
         boolean validateToken = JWTManager.verifyToken(token, password);
         validateToken = true; // 防止开发时设定一个开关  可以配置到配置文件中  更方便--后进行维护
-        logger.debug("JWS验证TOKEN：{}"+validateToken);  // 请求的非登录路径进行拼写token参数从login打印的日志获取 进行验密
+        logger.debug("JWS验证TOKEN：{}" + validateToken);  // 请求的非登录路径进行拼写token参数从login打印的日志获取 进行验密
         return true;
     }
 

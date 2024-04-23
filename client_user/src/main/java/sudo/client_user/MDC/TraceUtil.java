@@ -12,22 +12,22 @@ import java.util.UUID;
  */
 public class TraceUtil {
 
-    public static void traceStart(){
+    public static void traceStart() {
         MDCThreadContext.init();
 
         String traceId = generateTraceId();
 
-        MDC.put("traceId",traceId);
+        MDC.put("traceId", traceId);
 
         MDCThreadContext.putTraceId(traceId);
     }
 
-    public static void traceEnd(){
+    public static void traceEnd() {
         MDC.clear();
         MDCThreadContext.clean();
     }
 
-    public static String generateTraceId(){
+    public static String generateTraceId() {
         return UUID.randomUUID().toString();
     }
 }

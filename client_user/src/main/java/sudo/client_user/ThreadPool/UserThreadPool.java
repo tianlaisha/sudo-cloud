@@ -13,7 +13,7 @@ import java.util.concurrent.*;
 public class UserThreadPool extends ThreadPoolExecutor {
 
     static int corePoolSize = 5; // 线程池的基本大小
-    static int maximumPoolSize =10; // 线程池允许创建的最大线程数
+    static int maximumPoolSize = 10; // 线程池允许创建的最大线程数
     static long keepAliveTime = 1000; // 线程空闲时候保持的时间
     static TimeUnit unit = TimeUnit.NANOSECONDS; // 线程池所允许线程的空闲时间单位
     static BlockingQueue<Runnable> workQueue = new ArrayBlockingQueue<Runnable>(2);// 线程池所使用的缓冲队列
@@ -27,10 +27,11 @@ public class UserThreadPool extends ThreadPoolExecutor {
     static ThreadFactory threadFactory = Executors.defaultThreadFactory(); // 用于设置创建线程的工厂--根据自己的喜好设定名称从而容易查找日志
 
     // 后续参数逐渐完善
-    public static UserThreadPool getUserThreadPool(){
-        return new UserThreadPool(UserThreadPool.corePoolSize,UserThreadPool.maximumPoolSize,UserThreadPool.keepAliveTime,UserThreadPool.unit,
-                UserThreadPool.workQueue,UserThreadPool.threadFactory,UserThreadPool.handler);
+    public static UserThreadPool getUserThreadPool() {
+        return new UserThreadPool(UserThreadPool.corePoolSize, UserThreadPool.maximumPoolSize, UserThreadPool.keepAliveTime, UserThreadPool.unit,
+                UserThreadPool.workQueue, UserThreadPool.threadFactory, UserThreadPool.handler);
     }
+
     public UserThreadPool(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit, BlockingQueue<Runnable> workQueue) {
         super(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue);
     }
