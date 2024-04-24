@@ -1,0 +1,60 @@
+server:
+  port: 9004
+spring:
+  application:
+    name: client-user
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/sudo?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    username: root
+    password: password
+    # 配置数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8001/eureka
+  instance:
+    hostname: localhost
+    # 注册中心使用ip进行注册
+    prefer-ip-address: true
+    # 注册地址是多少
+    ip-address: 127.0.0.1
+    # eureka上的服务时效时间 默认90 秒
+    lease-expiration-duration-in-seconds: 5
+    # 服务续约时间 默认30 秒
+    lease-renewal-interval-in-seconds: 5
+
+
+
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*Mapper.xml
+  type-aliases-package: sudo.client_user.mapper
+logging:
+  config: classpath:config/locbak.xml
+  level:
+    com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver: WARN
+    sudo.client_user: debug
+
+feign:
+  hystrix:
+    enabled: true
+  compression:
+    response:
+      enabled: true  #开启响应压缩
+    request:
+      enabled: true #开启请求压缩
+      mime-types: text/html,application/xml,application/json  #请求类型
+      min-request-size: 2048  #请求大小
+  client:
+    config:
+      default:  #默认连接  读取数据超时时间设置
+        connect-timeout: 1000
+        read-timeout: 2000
+      client-chat:  #定义某个feign  根据name命名来设置每个feign的链接 读取超时时间设置
+        connect-timeout: 1000
+        read-timeout: 2000
+
+
