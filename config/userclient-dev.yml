@@ -60,18 +60,18 @@ feign:
 
 ---
 server:
-  port: 8003
+  port: 1002
 spring:
   profiles: dev
 
 ---
 server:
-  port: 8001
+  port: 1001
 spring:
   profiles: pro
 
 ---
 server:
-  port: 8004
+  port: 1003
 spring:
   profiles: test
