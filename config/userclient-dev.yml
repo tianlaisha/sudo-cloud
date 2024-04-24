@@ -11,6 +11,7 @@ spring:
     # 配置数据源
     type: com.alibaba.druid.pool.DruidDataSource
 
+
 eureka:
   client:
     service-url:
@@ -57,4 +58,20 @@ feign:
         connect-timeout: 1000
         read-timeout: 2000
 
+---
+server:
+  port: 8003
+spring:
+  profiles: dev
 
+---
+server:
+  port: 8001
+spring:
+  profiles: pro
+
+---
+server:
+  port: 8004
+spring:
+  profiles: test
