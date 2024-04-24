@@ -12,10 +12,9 @@ spring:
           uri: https://github.com/tianlaisha/sudo-cloud.git
           search-paths: config
           default-label: master
-          force-pull: true
           # github上public的  username与password可以使空
           username: tianlaisha
-          password: glz123456```
+          password: glz5201314glz
           clone-on-start: true
 eureka:
   instance:
