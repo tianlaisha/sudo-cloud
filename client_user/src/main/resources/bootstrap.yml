@@ -11,6 +11,7 @@ spring:
         enabled: true
         # 配置中心服务名
         service-id: config-server
+
 eureka:
   client:
     service-url:

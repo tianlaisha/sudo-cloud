@@ -1,5 +1,5 @@
-#server:
-#  port: 9004
+server:
+  port: 9004
 spring:
   application:
     name: client-user
@@ -58,20 +58,3 @@ feign:
         connect-timeout: 1000
         read-timeout: 2000
 
----
-server:
-  port: 1002
-spring:
-  profiles: dev
-
----
-server:
-  port: 1001
-spring:
-  profiles: pro
-
----
-server:
-  port: 1003
-spring:
-  profiles: test
